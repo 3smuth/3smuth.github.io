@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.8</title>
+    <title>Design Randomiser v0.9</title>
     
     <style>
       body {
@@ -34,6 +34,7 @@
       function sliderVal(name,val) {
         var targetName = name+"Current";
         document.getElementById(targetName).innerText = val;
+        setConsole(name + " changed to " + val);
       }
       
       function enableSliders(name) {
@@ -68,7 +69,7 @@
             <label for="minColors">Min</label>
           </td>
           <td>
-            <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)">
             <label for="minColors" id="minColorsCurrent">0</label>
           </td>
         </tr>
@@ -77,7 +78,7 @@
             <label for="maxColors">Max</label>
           </td>
           <td>
-            <input type="range" class="useColors" max=5 value=5 id="maxColors" name="maxColors" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useColors" max=5 value=5 id="maxColors" name="maxColors" oninput="sliderVal(this.name,this.value)">
             <label for="maxColors" id="maxColorsCurrent">5</label>            
           </td>
         </tr>
@@ -92,7 +93,7 @@
             <label for="minTypes">Min</label>
           </td>
           <td>
-            <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="sliderVal(this.name,this.value)">
             <label for="minTypes" id="minTypesCurrent">0</label>
           </td>
           <td rowspan=2>
@@ -105,7 +106,7 @@
             <label for="maxTypes">Max</label>
           </td>
           <td>
-            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" name="maxTypes" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" name="maxTypes" oninput="sliderVal(this.name,this.value)">
             <label for="maxTypes" id="maxTypesCurrent">5</label>
           </td>
         </tr>
@@ -119,7 +120,7 @@
             <label for="minPow">Min</label>
           </td>
           <td>
-            <input type="range" class="usePow" max=20 value=0 id="minPow" name="minPow" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="usePow" max=20 value=0 id="minPow" name="minPow" oninput="sliderVal(this.name,this.value)">
             <label for="minPow" id="minPowCurrent">0</label>
           </td>
         </tr>
@@ -128,7 +129,7 @@
             <label for="maxPow">Max</label>
           </td>
           <td>
-            <input type="range" class="usePow" max=20 value=20 id="maxPow" name="maxPow" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="usePow" max=20 value=20 id="maxPow" name="maxPow" oninput="sliderVal(this.name,this.value)">
             <label for="maxPow" id="maxPowCurrent">20</label>
           </td>
         </tr>
@@ -142,7 +143,7 @@
             <label for="minTough">Min</label>
           </td>
           <td>
-            <input type="range" class="useTough" max=20 value=0 id="minTough" name="minTough" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useTough" max=20 value=0 id="minTough" name="minTough" oninput="sliderVal(this.name,this.value)">
             <label for="minTough" id="minToughCurrent">0</label>
           </td>
           <td rowspan=2>
@@ -155,7 +156,7 @@
             <label for="maxTough">Max</label>
           </td>
           <td>
-            <input type="range" class="useTough" max=20 value=20 id="maxTough" name="maxTough" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useTough" max=20 value=20 id="maxTough" name="maxTough" oninput="sliderVal(this.name,this.value)">
             <label for="maxTough" id="maxToughCurrent">20</label>
           </td>
         </tr>
