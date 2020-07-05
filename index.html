@@ -75,7 +75,7 @@
             <label for="minColors" id="minColorsCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="minSlider(this.name,this.value)" data-linked="maxColors">
+            <input type="range" class="useColors" max=5 value=0 id="minColors" oninput="minSlider(this.id,this.value)" data-linked="maxColors">
           </td>
           <td rowspan=2>
             <input type="checkbox" class="check" id="useRarity" name="useRarity">
@@ -88,13 +88,11 @@
             <label for="maxColors" id="maxColorsCurrent">(5)</label>    
           </td>
           <td>
-            <input type="range" class="useColors" max=5 value=5 id="maxColors" name="maxColors" oninput="maxSlider(this.name,this.value)" data-linked="minColors">        
+            <input type="range" class="useColors" max=5 value=5 id="maxColors" oninput="maxSlider(this.id,this.value)" data-linked="minColors">        
           </td>
           <td rowspan=2>
           </td> 
         </tr>
-        
-
         <tr>
           <td rowspan=2>
             <input type="checkbox" class="check" id="useTypes" name="useTypes">
@@ -105,7 +103,7 @@
             <label for="minTypes" id="minTypesCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="minSlider(this.name,this.value)" data-linked="maxTypes">
+            <input type="range" class="useTypes" max=5 value=0 id="minTypes" oninput="minSlider(this.id,this.value)" data-linked="maxTypes">
           </td>
           <td rowspan=2>
             <input type="checkbox" id="raceClass" name="raceClass">
@@ -118,7 +116,7 @@
             <label for="maxTypes" id="maxTypesCurrent">(5)</label>
           </td>
           <td>
-            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" name="maxTypes" oninput="maxSlider(this.name,this.value)" data-linked="minTypes">
+            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" oninput="maxSlider(this.id,this.value)" data-linked="minTypes">
           </td>
         </tr>
       
@@ -132,7 +130,7 @@
             <label for="minPow" id="minPowCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="usePow" max=20 value=0 id="minPow" name="minPow" oninput="minSlider(this.name,this.value)" data-linked="maxPow">
+            <input type="range" class="usePow" max=20 value=0 id="minPow" oninput="minSlider(this.id,this.value)" data-linked="maxPow">
           </td>
         </tr>
         <tr>
@@ -141,7 +139,7 @@
             <label for="maxPow" id="maxPowCurrent">(20)</label>
           </td>
           <td>
-            <input type="range" class="usePow" max=20 value=20 id="maxPow" name="maxPow" oninput="maxSlider(this.name,this.value)" data-linked="minPow">
+            <input type="range" class="usePow" max=20 value=20 id="maxPow" oninput="maxSlider(this.id,this.value)" data-linked="minPow">
           </td>
           <td rowspan=2>
           </td>
@@ -157,7 +155,7 @@
             <label for="minTough" id="minToughCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="useTough" max=20 value=0 id="minTough" name="minTough" oninput="minSlider(this.name,this.value)" data-linked="maxTough">
+            <input type="range" class="useTough" max=20 value=0 id="minTough" oninput="minSlider(this.id,this.value)" data-linked="maxTough">
           </td>
           <td rowspan=2>
           </td>
@@ -168,7 +166,7 @@
             <label for="maxTough" id="maxToughCurrent">(20)</label>
           </td>
           <td>
-            <input type="range" class="useTough" max=20 value=20 id="maxTough" name="maxTough" oninput="maxSlider(this.name,this.value)" data-linked="minTough">
+            <input type="range" class="useTough" max=20 value=20 id="maxTough" oninput="maxSlider(this.id,this.value)" data-linked="minTough">
           </td>
         </tr>
         <tr>
