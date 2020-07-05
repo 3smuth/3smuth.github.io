@@ -25,9 +25,8 @@
     </style>
     
     <script>
-      function minColorChange(val) {
-        document.getElementById('minColorCurrent').innerHTML = val;
-        document.title = "I did a thing."
+      function sliderVal(name,val) {
+        document.getElementById(name).innerHTML = val;
       }
     </script>
   </head>
@@ -48,7 +47,7 @@
             <label for="minColors">Min</label>
           </td>
           <td>
-            <input type="range" max=5 value=0 id="minColors" name="minColors" oninput="minColorChange(this.value)">
+            <input type="range" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.id,this.value)">
             <label for="minColors" id="minColorCurrent">0</label>
           </td>
         </tr>
