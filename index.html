@@ -27,7 +27,7 @@
     <script>
       function sliderVal(name,val) {
         var targetName = name+"Current";
-        document.getElementById(name).innerHTML = val;
+        document.getElementById(targetName).innerHTML = val;
       }
     </script>
   </head>
@@ -57,7 +57,8 @@
             <label for="maxColors">Max</label>
           </td>
           <td>
-            <input type="range" max=5 value=5 id="maxColors" name="maxColors">
+            <input type="range" max=5 value=5 id="maxColors" name="maxColors" oninput="sliderVal(this.name,this.value)">
+            <label for="maxColors" id="maxColorsCurrent">5</label>            
           </td>
         </tr>
         
