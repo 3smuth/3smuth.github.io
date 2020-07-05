@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.17</title>
+    <title>Design Randomiser v0.18</title>
     
     <style>
       body {
@@ -40,7 +40,7 @@
       
       function minSlider(name,val) {
         sliderVal(name,val);
-        var pair = document.getElementById(name).data-linked;
+        var pair = document.getElementById(name).dataset.linked;
         if(document.getElementById(name).value > document.getElementById(pair).value){
           document.getElementById(pair).value = val;
           sliderVal(pair, val);
@@ -49,7 +49,7 @@
       
       function maxSlider(name,val) {
         sliderVal(name,val);
-        var pair = document.getElementById(name).data-linked;
+        var pair = document.getElementById(name).dataset.linked;
         if(document.getElementById(name).value < document.getElementById(pair).value){
           document.getElementById(pair).value = val;
           sliderVal(pair, val);
