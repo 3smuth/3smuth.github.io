@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.11</title>
+    <title>Design Randomiser v0.12</title>
     
     <style>
       body {
-        background-color:#440044;
-        font-family:sans-serif;
+        background-color: #440044;
+        font-family: sans-serif;
       }
       
-      table {
-        color:white;
-      }
-      
-      tr {
-        border-color:white;
-        border-style:double;
-        padding:10px;
+      label {
+        text-size: 8px;
+        color: silver;
       }
       
       td {
@@ -24,7 +19,7 @@
       }
       
       input {
-        margin:auto;
+        margin: auto;
       }
       
       #range
@@ -44,10 +39,10 @@
     </script>
   </head>
   <body>
-    <table align="center" top=200px>
+    <table align="center" id="form">
         <tr>
           <td colspan=4>
-            <h1>Custom Magic Card Design Randomiser</h1>
+            <label for="form"><h1>Custom Magic Card Design Randomiser</h1></label>
           </td>
         </tr>
         <tr>
@@ -62,6 +57,10 @@
           <td>
             <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)">
           </td>
+          <td rowspan=2>
+            <label for="useRarity">Rarity</label><br>
+            <input type="checkbox" class="check" id="useRarity" name="useRarity">
+          </td>
         </tr>
         <tr>
           <td>
@@ -72,8 +71,6 @@
             <label for="maxColors" id="maxColorsCurrent">5</label>            
           </td>
           <td rowspan=2>
-            <label for="useRarity">Rarity</label><br>
-            <input type="checkbox" class="check" id="useRarity" name="useRarity">
           </td> 
         </tr>
         
