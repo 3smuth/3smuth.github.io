@@ -5,17 +5,17 @@
   </head>
   <body>
     <form>
-      <table>
+      <table align="center">
         <tr>
           <td rowspan=2>
-            <label for="useColors">Colors</label><br>
+            <label for="useColors">Color</label>
             <input type="checkbox" id="useColors">
           </td>
           <td>
             <label for="minColors">Min</label>
           </td>
           <td>
-            <input type="range" max=5 id="minColors"><br>
+            <input type="range" max=5 id="minColors">
           </td>
         </tr>
         <tr>
@@ -23,38 +23,85 @@
             <label for="maxColors">Max</label>
           </td>
           <td>
-            <input type="range" max=5 id="maxColors"><br><br>
+            <input type="range" max=5 id="maxColors">
           </td>
         </tr>
         
 
-      <label for="useTypes">Types</label>
-      <input type="checkbox" id="useTypes"><br>
-      <label for="minTypes">Min</label>
-      <input type="range" max=5 id="minTypes"><br>
-      <label for="maxTypes">Max</label>
-      <input type="range" max=5 id="maxTypes"><br>
-      <label for="raceClass">Use Race/Class</label>
-      <input type="checkbox" id="raceClass"><br><br>
+        <tr>
+          <td rowspan=2>
+            <label for="useTypes">Types</label><br>
+            <input type="checkbox" id="useTypes">
+          </td>
+          <td>
+            <label for="minTypes">Min</label>
+          </td>
+          <td>
+            <input type="range" max=5 id="minTypes">
+          </td>
+          <td rowspan=2>
+            <label for="raceClass">Use Race/Class</label><br>
+            <input type="checkbox" id="raceClass">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="maxTypes">Max</label>
+          </td>
+          <td>
+            <input type="range" max=5 id="maxTypes">
+          </td>
+        </tr>
       
-      <label for="usePow">Power</label>
-      <input type="checkbox" id="usePow"><br>
-      <label for="minPow">Min</label>
-      <input type="range" max=20 id="minPow"><br>
-      <label for="maxPow">Max</label>
-      <input type="range" max=20 id="maxPow"><br><br>
-      
-      <label for="useTough">Toughness</label>
-      <input type="checkbox" id="useTough"><br>
-      <label for="minTough">Min</label>
-      <input type="range" max=20 id="minTough"><br>
-      <label for="maxTough">Max</label>
-      <input type="range" max=20 id="maxTough"><br><br>
-      
-      <label for="useRarity">Rarity</label>
-      <input type="checkbox" id="useRarity"><br><br>
-      
-      <button id="submit">Randomise!</button>
+        <tr>
+          <td rowspan=2>
+            <label for="usePow">Power</label><br>
+            <input type="checkbox" id="usePow">
+          </td>
+          <td>
+            <label for="minPow">Min</label>
+          </td>
+          <td>
+            <input type="range" max=20 id="minPow"><br>
+          </td>
+          <td>
+            <label for="maxPow">Max</label>
+          </td>
+          <td>
+            <input type="range" max=20 id="maxPow"><br><br>
+          </td>
+        </tr>
+        
+        <tr>
+          <td rowspan=2>
+            <label for="useTough">Toughness</label><br>
+            <input type="checkbox" id="useTough">
+          </td>
+          <td>
+            <label for="minTough">Min</label>
+          </td>
+          <td>
+            <input type="range" max=20 id="minTough">
+          </td>
+          <td rowspan=2>
+            <label for="useRarity">Rarity</label><br>
+            <input type="checkbox" id="useRarity">
+          </td>            
+        </tr>
+        <tr>
+          <td>
+            <label for="maxTough">Max</label>
+          </td>
+          <td>
+            <input type="range" max=20 id="maxTough">
+          </td>
+        </tr>
+        <tr>
+          <td colspan=4>
+            <button id="submit">Randomise!</button>
+          </td>
+        </tr>
+      </table>
      </form>
   </body>
 </html>
