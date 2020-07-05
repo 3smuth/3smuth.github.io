@@ -37,19 +37,9 @@
         setConsole(name + " changed to " + val);
       }
       
-      function enableSliders(name) {
-        setConsole(name + " clicked!");
-        //submitIsActive();
-        //document.getElementsByClassName(name).forEach(element => element.disabled = !getElementById(name).checked);
-      }
-      
-      function submitIsActive() {
-        document.getElementById('submit').disabled = true;
-        document.getElementsByClassName('check').forEach(element => if(element.checked)document.getElementbyId('submit').disabled = false;
-      }
-      
       function setConsole(msg) {
         document.getElementsById('console').innerText = msg;
+        document.title = msg;
       }
     </script>
   </head>
@@ -62,7 +52,7 @@
         </tr>
         <tr>
           <td rowspan=2>
-            <input type="checkbox" class="check" id="useColors" name="useColors" onchange="enableSliders(this.name)" onclick="enableSliders(this.name)">
+            <input type="checkbox" class="check" id="useColors" name="useColors" onchange="enableSliders(this.name)">
             <label for="useColors"> Color</label>            
           </td>
           <td>
@@ -86,7 +76,7 @@
 
         <tr>
           <td rowspan=2>
-            <input type="checkbox" class="check" id="useTypes" name="useTypes" onchange="enableSliders(this.name)">
+            <input type="checkbox" class="check" id="useTypes" name="useTypes">
             <label for="useTypes">Types</label>
           </td>
           <td>
@@ -136,7 +126,7 @@
         
         <tr>
           <td rowspan=2>
-            <input type="checkbox" class="check" id="useTough" name="useTough" onchange="enableSliders(this.name)">
+            <input type="checkbox" class="check" id="useTough" name="useTough">
             <label for="useTough">Toughness</label>            
           </td>
           <td>
@@ -162,7 +152,7 @@
         </tr>
         <tr>
           <td colspan=4>
-            <button id="submit" onpress="randomise()" disabled>Randomise!</button><br>
+            <button id="submit" onpress="randomise()">Randomise!</button><br>
             <label id="console">Empty Console</label>
           </td>
         </tr>
