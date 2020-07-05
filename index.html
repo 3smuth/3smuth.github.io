@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.2</title>
+    <title>Design Randomiser v0.3</title>
     
     <style>
       body {
@@ -31,6 +31,10 @@
         var targetName = name+"Current";
         document.getElementById(targetName).innerHTML = val;
       }
+      
+      function enableSliders(name) {
+        document.getElementsByClassName(name).forEach(element => element.setDisabled(!getElementById(name).checked);
+      }
     </script>
   </head>
   <body>
@@ -43,13 +47,13 @@
         <tr>
           <td rowspan=2>
             <label for="useColors">Color</label><br>
-            <input type="checkbox" id="useColors" name="useColors">
+            <input type="checkbox" id="useColors" name="useColors" oninput=enableSliders(this.name)>
           </td>
           <td>
             <label for="minColors">Min</label>
           </td>
           <td>
-            <input type="range" class="color" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)" disabled>
             <label for="minColors" id="minColorsCurrent">0</label>
           </td>
         </tr>
@@ -58,7 +62,7 @@
             <label for="maxColors">Max</label>
           </td>
           <td>
-            <input type="range" class="color" max=5 value=5 id="maxColors" name="maxColors" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useColors" max=5 value=5 id="maxColors" name="maxColors" oninput="sliderVal(this.name,this.value)" disabled>
             <label for="maxColors" id="maxColorsCurrent">5</label>            
           </td>
         </tr>
@@ -87,7 +91,7 @@
           </td>
           <td>
             <input type="range" class="type" max=5 value=5 id="maxTypes" name="maxTypes" oninput="sliderVal(this.name,this.value)" disabled>
-            <label for="maxTypes" id="maxTypesCurrent">0</label>
+            <label for="maxTypes" id="maxTypesCurrent">5</label>
           </td>
         </tr>
       
@@ -110,7 +114,7 @@
           </td>
           <td>
             <input type="range" class="usePow" max=20 value=20 id="maxPow" name="maxPow" oninput="sliderVal(this.name,this.value)" disabled>
-            <label for="maxPow" id="maxPowCurrent">0</label>
+            <label for="maxPow" id="maxPowCurrent">20</label>
           </td>
         </tr>
         
@@ -137,7 +141,7 @@
           </td>
           <td>
             <input type="range" class="useTough" max=20 value=20 id="maxTough" name="maxTough" oninput="sliderVal(this.name,this.value)" disabled>
-            <label for="maxTough" id="maxToughCurrent">0</label>
+            <label for="maxTough" id="maxToughCurrent">20</label>
           </td>
         </tr>
         <tr>
