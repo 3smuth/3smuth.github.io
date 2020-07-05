@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.7</title>
+    <title>Design Randomiser v0.8</title>
     
     <style>
       body {
@@ -11,6 +11,10 @@
       
       table {
         color:white;
+      }
+      
+      label {
+        padding:10px;
       }
       
       tr {
@@ -57,8 +61,8 @@
         </tr>
         <tr>
           <td rowspan=2>
-            <label for="useColors">Color</label><br>
             <input type="checkbox" class="check" id="useColors" name="useColors" onchange="enableSliders(this.name)" onclick="enableSliders(this.name)">
+            <label for="useColors"> Color</label>            
           </td>
           <td>
             <label for="minColors">Min</label>
@@ -81,8 +85,8 @@
 
         <tr>
           <td rowspan=2>
-            <label for="useTypes">Types</label><br>
             <input type="checkbox" class="check" id="useTypes" name="useTypes" onchange="enableSliders(this.name)">
+            <label for="useTypes">Types</label>
           </td>
           <td>
             <label for="minTypes">Min</label>
@@ -108,8 +112,8 @@
       
         <tr>
           <td rowspan=2>
-            <label for="usePow">Power</label><br>
-            <input type="checkbox" class="check" id="usePow" name="usePow" onchange="enableSliders(this.name)">
+             <input type="checkbox" class="check" id="usePow" name="usePow" onchange="enableSliders(this.name)">
+             <label for="usePow"> Power</label>           
           </td>
           <td>
             <label for="minPow">Min</label>
@@ -131,8 +135,8 @@
         
         <tr>
           <td rowspan=2>
-            <label for="useTough">Toughness</label><br>
             <input type="checkbox" class="check" id="useTough" name="useTough" onchange="enableSliders(this.name)">
+            <label for="useTough">Toughness</label>            
           </td>
           <td>
             <label for="minTough">Min</label>
