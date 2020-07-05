@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.15</title>
+    <title>Design Randomiser v0.16</title>
     
     <style>
       body {
@@ -20,6 +20,8 @@
       }
       
       td {
+        border-style: single;
+        border-color: silver;
         margin: 10px;
       }
       
@@ -59,8 +61,8 @@
             <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)">
           </td>
           <td rowspan=2>
-            <label for="useRarity" class="header">Rarity</label><br>
             <input type="checkbox" class="check" id="useRarity" name="useRarity">
+            <label for="useRarity" class="header">Rarity</label>         
           </td>
         </tr>
         <tr>
@@ -89,8 +91,8 @@
             <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="sliderVal(this.name,this.value)">
           </td>
           <td rowspan=2>
-            <label for="raceClass" class="header">Use Race/Class</label><br>
             <input type="checkbox" id="raceClass" name="raceClass">
+            <label for="raceClass" class="header">Use Race/Class</label>            
           </td>
         </tr>
         <tr>
@@ -154,7 +156,7 @@
         </tr>
         <tr>
           <td colspan=4>
-            <button id="submit" onpress="randomise()">Randomise!</button><br>
+            <button id="submit" onpress="randomise()" align="center">Randomise!</button>
           </td>
         </tr>
     </table>
