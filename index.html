@@ -26,6 +26,7 @@
     
     <script>
       function sliderVal(name,val) {
+        var targetName = name+"Current";
         document.getElementById(name).innerHTML = val;
       }
     </script>
@@ -47,8 +48,8 @@
             <label for="minColors">Min</label>
           </td>
           <td>
-            <input type="range" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.id,this.value)">
-            <label for="minColors" id="minColorCurrent">0</label>
+            <input type="range" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)">
+            <label for="minColors" id="minColorsCurrent">0</label>
           </td>
         </tr>
         <tr>
