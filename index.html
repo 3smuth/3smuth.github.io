@@ -34,8 +34,8 @@
       
       function enableSliders(name) {
         setConsole(name + " clicked!");
-        submitIsActive();
-        document.getElementsByClassName(name).forEach(element => element.disabled = !getElementById(name).checked);
+        //submitIsActive();
+        //document.getElementsByClassName(name).forEach(element => element.disabled = !getElementById(name).checked);
       }
       
       function submitIsActive() {
@@ -158,7 +158,7 @@
         <tr>
           <td colspan=4>
             <button id="submit" onpress="randomise()" disabled>Randomise!</button><br>
-            <label id="console"></label>
+            <label id="console">Empty Console</label>
           </td>
         </tr>
     </table>
