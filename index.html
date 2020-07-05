@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.4</title>
+    <title>Design Randomiser v0.5</title>
     
     <style>
       body {
@@ -52,7 +52,7 @@
         <tr>
           <td rowspan=2>
             <label for="useColors">Color</label><br>
-            <input type="checkbox" id="useColors" name="useColors" oninput=enableSliders(this.name)>
+            <input type="checkbox" id="useColors" name="useColors" onchange=enableSliders(this.name)>
           </td>
           <td>
             <label for="minColors">Min</label>
@@ -76,13 +76,13 @@
         <tr>
           <td rowspan=2>
             <label for="useTypes">Types</label><br>
-            <input type="checkbox" id="useTypes" name="useTypes">
+            <input type="checkbox" id="useTypes" name="useTypes" onchange=enableSliders(this.name)>
           </td>
           <td>
             <label for="minTypes">Min</label>
           </td>
           <td>
-            <input type="range" class="type" max=5 value=0 id="minTypes" name="minTypes" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="sliderVal(this.name,this.value)" disabled>
             <label for="minTypes" id="minTypesCurrent">0</label>
           </td>
           <td rowspan=2>
@@ -95,7 +95,7 @@
             <label for="maxTypes">Max</label>
           </td>
           <td>
-            <input type="range" class="type" max=5 value=5 id="maxTypes" name="maxTypes" oninput="sliderVal(this.name,this.value)" disabled>
+            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" name="maxTypes" oninput="sliderVal(this.name,this.value)" disabled>
             <label for="maxTypes" id="maxTypesCurrent">5</label>
           </td>
         </tr>
@@ -103,7 +103,7 @@
         <tr>
           <td rowspan=2>
             <label for="usePow">Power</label><br>
-            <input type="checkbox" id="usePow" name="usePow">
+            <input type="checkbox" id="usePow" name="usePow" onchange=enableSliders(this.name)>
           </td>
           <td>
             <label for="minPow">Min</label>
@@ -126,7 +126,7 @@
         <tr>
           <td rowspan=2>
             <label for="useTough">Toughness</label><br>
-            <input type="checkbox" id="useTough" name="useTough">
+            <input type="checkbox" id="useTough" name="useTough" onchange=enableSliders(this.name)>
           </td>
           <td>
             <label for="minTough">Min</label>
