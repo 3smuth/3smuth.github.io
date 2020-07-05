@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.3</title>
+    <title>Design Randomiser v0.4</title>
     
     <style>
       body {
@@ -33,7 +33,12 @@
       }
       
       function enableSliders(name) {
-        document.getElementsByClassName(name).forEach(element => element.setDisabled(!getElementById(name).checked);
+        setConsole(name + " clicked!");
+        document.getElementsByClassName(name).forEach(element => element.setDisabled(!getElementById(name).checked));
+      }
+      
+      function setConsole(msg) {
+        document.getElementsById('console').innerText = msg;
       }
     </script>
   </head>
@@ -146,7 +151,8 @@
         </tr>
         <tr>
           <td colspan=4>
-            <button id="submit" onpress="randomise()">Randomise!</button>
+            <button id="submit" onpress="randomise()">Randomise!</button><br>
+            <label id="console"></label>
           </td>
         </tr>
     </table>
