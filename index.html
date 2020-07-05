@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.5</title>
+    <title>Design Randomiser v0.6</title>
     
     <style>
       body {
@@ -34,7 +34,13 @@
       
       function enableSliders(name) {
         setConsole(name + " clicked!");
-        document.getElementsByClassName(name).forEach(element => element.setDisabled(!getElementById(name).checked));
+        submitIsActive();
+        document.getElementsByClassName(name).forEach(element => element.disabled = !getElementById(name).checked);
+      }
+      
+      function submitIsActive() {
+        document.getElementById('submit').disabled = true;
+        document.getElementsByClassName('check').forEach(element => if(element.checked)document.getElementbyId('submit').disabled = false;
       }
       
       function setConsole(msg) {
@@ -52,7 +58,7 @@
         <tr>
           <td rowspan=2>
             <label for="useColors">Color</label><br>
-            <input type="checkbox" id="useColors" name="useColors" onchange=enableSliders(this.name)>
+            <input type="checkbox" class="check" id="useColors" name="useColors" onchange="enableSliders(this.name)">
           </td>
           <td>
             <label for="minColors">Min</label>
@@ -76,7 +82,7 @@
         <tr>
           <td rowspan=2>
             <label for="useTypes">Types</label><br>
-            <input type="checkbox" id="useTypes" name="useTypes" onchange=enableSliders(this.name)>
+            <input type="checkbox" class="check" id="useTypes" name="useTypes" onchange="enableSliders(this.name)">
           </td>
           <td>
             <label for="minTypes">Min</label>
@@ -103,7 +109,7 @@
         <tr>
           <td rowspan=2>
             <label for="usePow">Power</label><br>
-            <input type="checkbox" id="usePow" name="usePow" onchange=enableSliders(this.name)>
+            <input type="checkbox" class="check" id="usePow" name="usePow" onchange="enableSliders(this.name)">
           </td>
           <td>
             <label for="minPow">Min</label>
@@ -126,7 +132,7 @@
         <tr>
           <td rowspan=2>
             <label for="useTough">Toughness</label><br>
-            <input type="checkbox" id="useTough" name="useTough" onchange=enableSliders(this.name)>
+            <input type="checkbox" class="check" id="useTough" name="useTough" onchange="enableSliders(this.name)">
           </td>
           <td>
             <label for="minTough">Min</label>
@@ -137,7 +143,7 @@
           </td>
           <td rowspan=2>
             <label for="useRarity">Rarity</label><br>
-            <input type="checkbox" id="useRarity" name="useRarity">
+            <input type="checkbox" class="check" id="useRarity" name="useRarity">
           </td>            
         </tr>
         <tr>
@@ -151,7 +157,7 @@
         </tr>
         <tr>
           <td colspan=4>
-            <button id="submit" onpress="randomise()">Randomise!</button><br>
+            <button id="submit" onpress="randomise()" disabled>Randomise!</button><br>
             <label id="console"></label>
           </td>
         </tr>
