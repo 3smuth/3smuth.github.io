@@ -5,12 +5,28 @@
   </head>
   <body>
     <form>
-      <label for="useColors">Colors</label>
-      <input type="checkbox" id="useColors"><br>
-      <label for="minColors">Min</label>
-      <input type="range" max=5 id="minColors"><br>
-      <label for="maxColors">Max</label>
-      <input type="range" max=5 id="maxColors"><br><br>
+      <table>
+        <tr>
+          <td rowspan=2>
+            <label for="useColors">Colors</label><br>
+            <input type="checkbox" id="useColors">
+          </td>
+          <td>
+            <label for="minColors">Min</label>
+          </td>
+          <td>
+            <input type="range" max=5 id="minColors"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="maxColors">Max</label>
+          </td>
+          <td>
+            <input type="range" max=5 id="maxColors"><br><br>
+          </td>
+        </tr>
+        
 
       <label for="useTypes">Types</label>
       <input type="checkbox" id="useTypes"><br>
