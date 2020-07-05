@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.16</title>
+    <title>Design Randomiser v0.17</title>
     
     <style>
       body {
@@ -22,15 +22,13 @@
       td {
         border-style: single;
         border-color: silver;
+        border-width: 1px;
         margin: 10px;
-      }
-      
-      input {
-        margin: auto;
       }
       
       button {
         align: center;
+        width: 100%;
       }
     </style>
     
@@ -39,6 +37,25 @@
         var targetName = name+"Current";
         document.getElementById(targetName).innerText = "(" + val + ")";
       }
+      
+      function minSlider(name,val) {
+        sliderVal(name,val);
+        var pair = document.getElementById(name).data-linked;
+        if(document.getElementById(name).value > document.getElementById(pair).value){
+          document.getElementById(pair).value = val;
+          sliderVal(pair, val);
+        }
+      }
+      
+      function maxSlider(name,val) {
+        sliderVal(name,val);
+        var pair = document.getElementById(name).data-linked;
+        if(document.getElementById(name).value < document.getElementById(pair).value){
+          document.getElementById(pair).value = val;
+          sliderVal(pair, val);
+        }
+      }
+      
     </script>
   </head>
   <body>
@@ -50,7 +67,7 @@
         </tr>
         <tr>
           <td rowspan=2>
-            <input type="checkbox" class="check" id="useColors" name="useColors" onchange="enableSliders(this.name)">
+            <input type="checkbox" class="check" id="useColors" name="useColors">
             <label for="useColors" class="header">Color</label>            
           </td>
           <td>
@@ -58,7 +75,7 @@
             <label for="minColors" id="minColorsCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="useColors" max=5 value=0 id="minColors" name="minColors" oninput="minSlider(this.name,this.value)" data-linked="maxColors">
           </td>
           <td rowspan=2>
             <input type="checkbox" class="check" id="useRarity" name="useRarity">
@@ -71,7 +88,7 @@
             <label for="maxColors" id="maxColorsCurrent">(5)</label>    
           </td>
           <td>
-            <input type="range" class="useColors" max=5 value=5 id="maxColors" name="maxColors" oninput="sliderVal(this.name,this.value)">        
+            <input type="range" class="useColors" max=5 value=5 id="maxColors" name="maxColors" oninput="maxSlider(this.name,this.value)" data-linked="minColors">        
           </td>
           <td rowspan=2>
           </td> 
@@ -88,7 +105,7 @@
             <label for="minTypes" id="minTypesCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="useTypes" max=5 value=0 id="minTypes" name="minTypes" oninput="minSlider(this.name,this.value)" data-linked="maxTypes">
           </td>
           <td rowspan=2>
             <input type="checkbox" id="raceClass" name="raceClass">
@@ -101,13 +118,13 @@
             <label for="maxTypes" id="maxTypesCurrent">(5)</label>
           </td>
           <td>
-            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" name="maxTypes" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="useTypes" max=5 value=5 id="maxTypes" name="maxTypes" oninput="maxSlider(this.name,this.value)" data-linked="minTypes">
           </td>
         </tr>
       
         <tr>
           <td rowspan=2>
-             <input type="checkbox" class="check" id="usePow" name="usePow" onchange="enableSliders(this.name)">
+             <input type="checkbox" class="check" id="usePow" name="usePow">
              <label for="usePow" class="header">Power</label>           
           </td>
           <td>
@@ -115,7 +132,7 @@
             <label for="minPow" id="minPowCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="usePow" max=20 value=0 id="minPow" name="minPow" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="usePow" max=20 value=0 id="minPow" name="minPow" oninput="minSlider(this.name,this.value)" data-linked="maxPow">
           </td>
         </tr>
         <tr>
@@ -124,7 +141,7 @@
             <label for="maxPow" id="maxPowCurrent">(20)</label>
           </td>
           <td>
-            <input type="range" class="usePow" max=20 value=20 id="maxPow" name="maxPow" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="usePow" max=20 value=20 id="maxPow" name="maxPow" oninput="maxSlider(this.name,this.value)" data-linked="minPow">
           </td>
           <td rowspan=2>
           </td>
@@ -140,7 +157,7 @@
             <label for="minTough" id="minToughCurrent">(0)</label>
           </td>
           <td>
-            <input type="range" class="useTough" max=20 value=0 id="minTough" name="minTough" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="useTough" max=20 value=0 id="minTough" name="minTough" oninput="minSlider(this.name,this.value)" data-linked="maxTough">
           </td>
           <td rowspan=2>
           </td>
@@ -151,13 +168,15 @@
             <label for="maxTough" id="maxToughCurrent">(20)</label>
           </td>
           <td>
-            <input type="range" class="useTough" max=20 value=20 id="maxTough" name="maxTough" oninput="sliderVal(this.name,this.value)">
+            <input type="range" class="useTough" max=20 value=20 id="maxTough" name="maxTough" oninput="maxSlider(this.name,this.value)" data-linked="minTough">
           </td>
         </tr>
         <tr>
-          <td colspan=4>
+          <td></td>
+          <td colspan=2>
             <button id="submit" onpress="randomise()" align="center">Randomise!</button>
           </td>
+          <td></td>
         </tr>
     </table>
   </body>
