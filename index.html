@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v1.02</title>
+    <title>Design Randomiser v1.03</title>
     
     <style>
       body {
@@ -139,11 +139,11 @@
           
           if(isRC){
             var raceRef = [...RACES];
-            if(isOther) raceRef.concat(OTHER_RACE);
+            if(isOther) raceRef = raceRef.concat(OTHER_RACE);
             typeList[0] = pickFrom(raceRef);
             if(typeList.length>1){
               var classRef = [...CLASSES];
-              if(isOther) classRef.concat(OTHER_CLASS);
+              if(isOther) classRef = classRef.concat(OTHER_CLASS);
               typeList[1] = pickFrom(classRef);
               if(typeList.length>2){
                 var typeRef = raceRef.concat(classRef);
@@ -154,7 +154,7 @@
             }
           } else {
             var typeRef = [...RACES].concat(CLASSES);
-              if(isOther) typeRef.concat(OTHER_RACE, OTHER_CLASS);
+              if(isOther) typeRef = typeRef.concat(OTHER_RACE, OTHER_CLASS);
               for(i=0;i<typeList.length;i++){
                 typeList[i] = pickFrom(typeRef);
               }
