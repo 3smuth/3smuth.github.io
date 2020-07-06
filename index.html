@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.20</title>
+    <title>Design Randomiser v0.20.1</title>
     
     <style>
       body {
@@ -34,17 +34,15 @@
     
     <script>
       function sliderVal(name,val) {
-        println(name + " " + val);
         var targetName = name+"Current";
-        println(targetName);
         document.getElementById(targetName).innerText = "(" + val + ")";
       }
       
       function minSlider(name,val,pair) {
-        println(name + " " + val);
         sliderVal(name,val);
         if(document.getElementById(name).value > document.getElementById(pair).value){
-          println(document.getElementById(name) - document.getElementById(pair));
+          println(name+": "+document.getElementById(name).value);
+          println(pair+": "+document.getElementById(pair).value;
           document.getElementById(pair).value = val;
           sliderVal(pair,val);
         }
@@ -53,8 +51,9 @@
       function maxSlider(name,val,pair) {
         println(name + " " + val);
         sliderVal(name,val);
-        if(document.getElementById(name).value < document.getElementById(pair).value){
-          println(document.getElementById(pair) - document.getElementById(name));
+        if(document.getElementById(name).value < document.getElementById(pair).value){          
+          println(name+": "+document.getElementById(name).value);
+          println(pair+": "+document.getElementById(pair).value;
           document.getElementById(pair).value = val;
           sliderVal(pair, val);
         }
