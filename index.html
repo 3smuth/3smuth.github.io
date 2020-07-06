@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.60.1</title>
+    <title>Design Randomiser v0.60.2</title>
     
     <style>
       body {
@@ -81,8 +81,9 @@
           var min = parseInt(document.getElementById("minColors").value);
           var dif = Math.max(parseInt(document.getElementById("maxColors").value) - min, 0) + 1;
           var colorList = new Array(min + Math.floor(Math.random()*(dif)));
-          var colorRef = COLORS;
+          var colorRef = [...COLORS];
           console.log("Number of colors: " + colorList.length);
+          
           for(i=0;i<colorList.length;i++){
             colorList[i] = colorRef.splice(Math.floor(Math.random()*colorRef.length),1);
             console.log("Color number " + i + " is " + colorList[i]);
