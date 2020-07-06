@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.63</title>
+    <title>Design Randomiser v0.64</title>
     
     <style>
       body {
@@ -191,6 +191,7 @@
         }
             
         // Update and print idea suggestion text.
+        if(isPower && !isTough) idea += " " + pow;
         document.getElementById('suggestion').innerText = idea + ".";
       }
       
