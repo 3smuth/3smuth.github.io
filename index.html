@@ -20,9 +20,9 @@
       }
       
       td {
-        border-style: solid;
-        border-color: #dddddd;
-        border-width: 1px;
+        //border-style: solid;
+        //border-color: #dddddd;
+        //border-width: 1px;
         padding: 10px;
       }
       
@@ -35,7 +35,7 @@
         width: 30%;
       }
       
-      tr.buttonhome {
+      tr.bigrow {
         height: 50px;
         text-align:center;
       }
@@ -51,26 +51,69 @@
         sliderVal(name,val);
         if(parseInt(document.getElementById(name).value) > parseInt(document.getElementById(pair).value)){
           document.getElementById(pair).value = val;
-          println(pair+"'s new value is: "+document.getElementById(pair).value);
           sliderVal(pair,val);
         }
       }
       
       function maxSlider(name,val,pair) {
         sliderVal(name,val);
-        println(name+": "+document.getElementById(name).value);
-        println(pair+": "+document.getElementById(pair).value);
         if(parseInt(document.getElementById(name).value) < parseInt(document.getElementById(pair).value)){
-          println("Ding! It should move now.");
           document.getElementById(pair).value = val;
-          println(pair+"'s new value is: "+document.getElementById(pair).value);
           sliderVal(pair, val);
         }
       }
       
-      function println(str){
-        console.log(str);
+      function randomise{
+        var idea = "Design a";
+        if(document.getElementById("useRarity").checked){
+          idea += rarities[Math.floor(Math.random() * rarities.length)];
+        }
+        if(document.getElementById("useTypes").checked){
+           
+        }
+        document.getElementById('suggestion').innerText = idea;
       }
+      
+      const rarities = [" common", 
+                        "n uncommon", 
+                        " rare", 
+                        " mythic rare"];
+      const raceTypes = ["Aetherborn",
+                         "Angel",
+                         "Antelope",
+                         "Ape",
+                         "Archon",
+                         "Atog",
+                         "Aurochs",
+                         "Avatar",
+                         "Azra",
+                         "Badger",
+                         "Basilisk",
+                         "Bat",
+                         "Bear",
+                         "Beast",
+                         "Beeble",
+                         "Bird", 
+                         "Blinkmoth",
+                         "Boar", 
+                         "Brushwagg", 
+                         "Camarid", 
+                         "Camel", 
+                         "Caribou", 
+                         "Cat", 
+                         "Centaur",
+                         "Cephalid"];
+      const classTypes = ["Advisor",
+                          "Ally",
+                          "Archer",
+                          "Army",
+                          "Artificer",
+                          "Assassin",
+                          "Assembly-Worker",
+                          "Barbarian",
+                          "Berserker",
+                          "Carrier",
+                          "Bringer",];
     </script>
   </head>
   <body>
@@ -166,11 +209,16 @@
             <input type="range" class="useTough" min=0 max=20 value=20 id="maxTough" oninput="maxSlider(this.id,this.value,'minTough')">
           </td>
         </tr>
-        <tr class="buttonhome">
+        <tr class="bigrow">
           <td colspan=4>
-            <button id="submit" onpress="randomise()" align="center">Randomise!</button>
+            <button id="submit" onclick="randomise()" align="center">Randomise!</button>
           </td>
         </tr>
+        <tr class="bigrow">
+          <td colspan=4 id="suggestion">
+            
+          </td>
+      </tr>
     </table>
   </body>
 </html>
