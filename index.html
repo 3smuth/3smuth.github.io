@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.24</title>
+    <title>Design Randomiser v0.60.1</title>
     
     <style>
       body {
@@ -65,20 +65,82 @@
       
       function randomise{
         var idea = "Design a";
-        if(document.getElementById("useRarity").checked){
-          idea += rarities[Math.floor(Math.random() * rarities.length)];
+        var isRare = document.getElementById("useRarity").checked;
+        var isColors = document.getElementById("useColors").checked;
+        var isTypes = document.getElementById("useTypes").checked;
+        var isPower = document.getElementById("usePow").checked;
+        var isTough = document.getElementById("useTough").checked;
+        var isRC = document.getElementById("useRaceClass").checked;
+        //var isOther = document.getElementById("useOtherTypes").checked;
+        
+        if(isRare){
+          idea += RARITIES[Math.floor(Math.random() * RARITIES.length)];
+        }
+        if(isColors){
+          isTypes ? idea += ". It's a" : idea += ". It's";
+          var min = parseInt(document.getElementById("minColors").value);
+          var dif = Math.max(parseInt(document.getElementById("maxColors").value) - min, 0) + 1;
+          var colorList = new Array(min + Math.floor(Math.random()*(dif)));
+          var colorRef = COLORS;
+          console.log("Number of colors: " + colorList.length);
+          for(i=0;i<colorList.length;i++){
+            colorList[i] = colorRef.splice(Math.floor(Math.random()*colorRef.length),1);
+            console.log("Color number " + i + " is " + colorList[i]);
+          }
+          switch(colorList.length){
+            case 0:
+              idea += " colorless";
+              break;
+            case 1:
+              idea += colorList[0];
+              break;
+            case 2:
+              idea += colorList[0] + " and" + colorList[1];
+              break;
+            case 3:
+              idea += colorList[0] + ", " + colorList[1] + ", and" + colorList[2];
+              break;
+            case 4:
+              idea += colorList[0] + ", " + colorList[1] + ", " + colorList[2] + ", and" + colorList[3];
+              break;
+            case 5:
+              idea += " five color";
+          }
         }
         if(document.getElementById("useTypes").checked){
-           
+          if(!isColors) idea += ". It's a";
+          var min = parseInt(document.getElementById("minTypes").value);
+          var dif = Math.max(parseInt(document.getElementById("maxTypes").value) - min, 0) + 1;
+          var typeList = new Array(min + Math.floor(Math.random()*(dif)));
+          
+          console.log("Number of colors: " + colorList.length);
+          for(i=0;i<colorList.length;i++){
+            colorList[i] = colorRef.splice(Math.floor(Math.random()*colorRef.length),1);
+            console.log("Color number " + i + " is " + colorList[i]);
+          }
+          
+        }
+        if(document.getElementById("usePow").checked){
+          
+        }
+        if(document.getElementById("useTough").checked){
+        
         }
         document.getElementById('suggestion').innerText = idea;
       }
       
-      const rarities = [" common", 
+      //"Design a(n) [RARITY] creature(. It's a) [COLORS] [TYPES] (with) (power) (and) (toughness) [POWER](/)[TOUGHNESS].
+      
+      const COLORS = [" white",
+                      " blue",
+                      " black",
+                      " red",
+                      " green"];
+      const RARITIES = [" common", 
                         "n uncommon", 
                         " rare", 
                         " mythic rare"];
-      const raceTypes = ["Aetherborn",
+      const RACES = ["Aetherborn",
                          "Angel",
                          "Antelope",
                          "Ape",
@@ -92,29 +154,243 @@
                          "Bat",
                          "Bear",
                          "Beast",
-                         "Beeble",
-                         "Bird", 
-                         "Blinkmoth",
-                         "Boar", 
-                         "Brushwagg", 
-                         "Camarid", 
-                         "Camel", 
-                         "Caribou", 
-                         "Cat", 
+                         "Bird",
+                         "Boar",
+                         "Camel",
+                         "Cat",
                          "Centaur",
-                         "Cephalid"];
-      const classTypes = ["Advisor",
-                          "Ally",
+                         "Cephalid",
+                         "Chimera",
+                         "Cockatrice",
+                         "Construct",
+                         "Crab",
+                         "Crocodile",
+                         "Cyclops",
+                         "Dauthi",
+                         "Demigod",
+                         "Demon",
+                         "Devil",
+                         "Dinosaur",
+                         "Djinn",
+                         "Dog",
+                         "Dragon",
+                         "Drake",
+                         "Dreadnought",
+                         "Drone",
+                         "Dryad",
+                         "Dwarf",
+                         "Efreet",
+                         "Egg",
+                         "Eldrazi",
+                         "Elemental",
+                         "Elephant",
+                         "Elf",
+                         "Elk",
+                         "Eye",
+                         "Faerie",
+                         "Ferret",
+                         "Fish",
+                         "Fox",
+                         "Frog",
+                         "Fungus",
+                         "Gargoyle",
+                         "Giant",
+                         "Gnome",
+                         "Goat",
+                         "Goblin",
+                         "God",
+                         "Golem",
+                         "Gorgon",
+                         "Gremlin",
+                         "Griffin",
+                         "Hag",
+                         "Harpy",
+                         "Hellion",
+                         "Hippo",
+                         "Hippogriff",
+                         "Homarid",
+                         "Homunculus",
+                         "Horror",
+                         "Horse",
+                         "Human",
+                         "Hydra",
+                         "Hyena",
+                         "Illusion",
+                         "Imp",
+                         "Incarnation",
+                         "Insect",
+                         "Jackal",
+                         "Jellyfish",
+                         "Juggernaut",
+                         "Kavu",
+                         "Kirin",
+                         "Kithkin",
+                         "Kobold",
+                         "Kor",
+                         "Kraken",
+                         "Lamia",
+                         "Lammasu",
+                         "Leech",
+                         "Leviathan",
+                         "Lhurgoyf",
+                         "Licid",
+                         "Lizard",
+                         "Manticore",
+                         "Masticore",
+                         "Merfolk",
+                         "Metathran",
+                         "Minotaur",
+                         "Mole",
+                         "Mongoose",
+                         "Monkey",
+                         "Moonfolk",
+                         "Mutant",
+                         "Myr",
+                         "Naga",
+                         "Nautilus",
+                         "Nephilim",
+                         "Nightmare",
+                         "Nightstalker",
+                         "Noggle",
+                         "Nymph",
+                         "Octopus",
+                         "Ogre",
+                         "Ooze",
+                         "Orc",
+                         "Orgg",
+                         "Otter",
+                         "Ouphe",
+                         "Ox",
+                         "Oyster",
+                         "Pangolin",
+                         "Pegasus",
+                         "Phoenix",
+                         "Plant",
+                         "Rabbit",
+                         "Rat",
+                         "Rhino",
+                         "Sable",
+                         "Salamander",
+                         "Satyr",
+                         "Scarecrow",
+                         "Scorpion",
+                         "Serpent",
+                         "Shade",
+                         "Shapeshifter",
+                         "Shark",
+                         "Sheep",
+                         "Siren",
+                         "Skeleton",
+                         "Slug",
+                         "Snake",
+                         "Soltari",
+                         "Specter",
+                         "Sphinx",
+                         "Spider",
+                         "Spirit",
+                         "Sponge",
+                         "Squid",
+                         "Squirrel",
+                         "Starfish",
+                         "Surrakar",
+                         "Thalakos",
+                         "Thopter",
+                         "Thrull",
+                         "Treefolk",
+                         "Trilobite",
+                         "Troll",
+                         "Turtle",
+                         "Unicorn",
+                         "Vampire",
+                         "Vedalken",
+                         "Viashino",
+                         "Weird",
+                         "Werewolf",
+                         "Whale",
+                         "Wolf",
+                         "Wolverine",
+                         "Wombat",
+                         "Worm",
+                         "Wraith",
+                         "Wurm",
+                         "Yeti",
+                         "Zombie"]
+      const CLASSES = ["Advisor",
                           "Archer",
-                          "Army",
                           "Artificer",
                           "Assassin",
-                          "Assembly-Worker",
                           "Barbarian",
                           "Berserker",
+                          "Cleric",
+                          "Druid",
+                          "Knight",
+                          "Mercenary",
+                          "Minion",
+                          "Monk",
+                          "Mystic",
+                          "Ninja",
+                          "Noble",
+                          "Nomad",
+                          "Peasant",
+                          "Pilot",
+                          "Pirate",
+                          "Rebel",
+                          "Rogue",
+                          "Samurai",
+                          "Scout",
+                          "Shaman",
+                          "Soldier",
+                          "Warlock",
+                          "Warrior",
+                          "Wizard"];
+      const OTHERS = ["Ally",
+                          "Army",
+                          "Assembly-Worker",
+                          "Beeble",
+                          "Blinkmoth",
+                          "Bringer",
+                          "Monger",
                           "Carrier",
-                          "Bringer",];
-    </script>
+                          "Citizen",
+                          "Camarid",
+                          "Caribou",
+                          "Coward",
+                          "Deserter",
+                          "Elder",
+                          "Flagbearer",
+                          "Germ",
+                          "Graveborn",
+                          "Mouse",
+                          "Orb",
+                          "Pentavite",
+                          "Pest",
+                          "Phelddagrif",
+                          "Pincher",
+                          "Praetor",
+                          "Prism",
+                          "Processor",
+                          "Reflection",
+                          "Rigger",
+                          "Sand",
+                          "Saproling",
+                          "Scion",
+                          "Sculpture",
+                          "Serf",
+                          "Servo",
+                          "Slith",
+                          "Sliver",
+                          "Spawn",
+                          "Spellshaper",
+                          "Spike",
+                          "Splinter",
+                          "Survivor",
+                          "Tentacle",
+                          "Tetravite",
+                          "Triskelavite",
+                          "Volver",
+                          "Wall",
+                          "Zubera"];
+      </script>
   </head>
   <body>
     <table align="center" id="form" width="50%">
@@ -152,11 +428,11 @@
           </td>
           <td>
             <label for="minTypes">Min</label>
-            <label for="minTypes" id="minTypesCurrent">(0)</label>
-            <input type="range" min=0 max=5 value=0 id="minTypes" oninput="minSlider(this.id,this.value,'maxTypes')">
+            <label for="minTypes" id="minTypesCurrent">(1)</label>
+            <input type="range" min=1 max=4 value=1 id="minTypes" oninput="minSlider(this.id,this.value,'maxTypes')">
           </td>
           <td rowspan=2>
-            <input type="checkbox" id="raceClass" name="raceClass">
+            <input type="checkbox" id="useRaceClass">
             <label for="raceClass" class="header">Use Race/Class</label>            
           </td>
         </tr>
@@ -164,7 +440,7 @@
           <td>
             <label for="maxTypes">Max</label>
             <label for="maxTypes" id="maxTypesCurrent">(5)</label>
-            <input type="range" class="useTypes" min=0 max=5 value=5 id="maxTypes" oninput="maxSlider(this.id,this.value,'minTypes')">
+            <input type="range" class="useTypes" min=1 max=4 value=4 id="maxTypes" oninput="maxSlider(this.id,this.value,'minTypes')">
           </td>
         </tr>
       
