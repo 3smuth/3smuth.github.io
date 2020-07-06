@@ -22,8 +22,8 @@
       td {
         border-style: solid;
         border-color: #dddddd;
-        border-width: thick;
-        margin: 10px;
+        border-width: 1px;
+        padding: 10px;
         width: 300px;
       }
       
@@ -33,7 +33,12 @@
       
       button {
         align: center;
-        width: 100%;
+        width: 30%;
+      }
+      
+      tr.buttonhome {
+        height: 50px;
+      
       }
     </style>
     
@@ -101,8 +106,6 @@
           <td>
             <input type="range" min=0 max=5 value=5 id="maxColors" oninput="maxSlider(this.id,this.value,'minColors')">        
           </td>
-          <td rowspan=2>
-          </td> 
         </tr>
         <tr>
           <td rowspan=2>
@@ -143,6 +146,8 @@
           <td>
             <input type="range" class="usePow" min=0 max=20 value=0 id="minPow" oninput="minSlider(this.id,this.value,'maxPow')">
           </td>
+          <td rowspan=2>
+          </td>
         </tr>
         <tr>
           <td>
@@ -151,8 +156,6 @@
           </td>
           <td>
             <input type="range" class="usePow" min=0 max=20 value=20 id="maxPow" oninput="maxSlider(this.id,this.value,'minPow')">
-          </td>
-          <td rowspan=2>
           </td>
         </tr>
         
@@ -180,12 +183,10 @@
             <input type="range" class="useTough" min=0 max=20 value=20 id="maxTough" oninput="maxSlider(this.id,this.value,'minTough')">
           </td>
         </tr>
-        <tr>
-          <td></td>
-          <td colspan=2>
+        <tr class="buttonhome">
+          <td colspan=4>
             <button id="submit" onpress="randomise()" align="center">Randomise!</button>
           </td>
-          <td></td>
         </tr>
     </table>
   </body>
