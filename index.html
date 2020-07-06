@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.23</title>
+    <title>Design Randomiser v0.24</title>
     
     <style>
       body {
@@ -24,7 +24,6 @@
         border-color: #dddddd;
         border-width: 1px;
         padding: 10px;
-        width: 300px;
       }
       
       input[type="range"] {
@@ -75,23 +74,23 @@
     </script>
   </head>
   <body>
-    <table align="center" id="form">
+    <table align="center" id="form" width="50%">
         <tr>
           <td colspan=4>
             <label for="form" class="header"><h1>Custom Magic Card Design Randomiser</h1></label>
           </td>
         </tr>
         <tr>
-          <td rowspan=2>
+          <td rowspan=2 width="25%">
             <input type="checkbox" id="useColors">
             <label for="useColors" class="header">Color</label>            
           </td>
-          <td>
+          <td width="50%">
             <label for="minColors">Min</label>
             <label for="minColors" id="minColorsCurrent">(0)</label>
             <input type="range" min=0 max=5 value=0 id="minColors" oninput="minSlider(this.id,this.value,'maxColors')">
           </td>
-          <td rowspan=2>
+          <td rowspan=2 width="25%">
             <input type="checkbox" class="check" id="useRarity" name="useRarity">
             <label for="useRarity" class="header">Rarity</label>         
           </td>
