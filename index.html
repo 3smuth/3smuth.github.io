@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.20.3</title>
+    <title>Design Randomiser v0.21</title>
     
     <style>
       body {
@@ -40,10 +40,7 @@
       
       function minSlider(name,val,pair) {
         sliderVal(name,val);
-        println(name+": "+document.getElementById(name).value);
-        println(pair+": "+document.getElementById(pair).value);
-        if(document.getElementById(name).value > document.getElementById(pair).value){
-          println("Ding! It should move now.");
+        if(parseInt(document.getElementById(name).value) > parseInt(document.getElementById(pair).value)){
           document.getElementById(pair).value = val;
           println(pair+"'s new value is: "+document.getElementById(pair).value);
           sliderVal(pair,val);
@@ -54,7 +51,7 @@
         sliderVal(name,val);
         println(name+": "+document.getElementById(name).value);
         println(pair+": "+document.getElementById(pair).value);
-        if(document.getElementById(name).value < document.getElementById(pair).value){
+        if(parseInt(document.getElementById(name).value) < parseInt(document.getElementById(pair).value)){
           println("Ding! It should move now.");
           document.getElementById(pair).value = val;
           println(pair+"'s new value is: "+document.getElementById(pair).value);
