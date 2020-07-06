@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.22</title>
+    <title>Design Randomiser v0.23</title>
     
     <style>
       body {
@@ -38,7 +38,7 @@
       
       tr.buttonhome {
         height: 50px;
-      
+        text-align:center;
       }
     </style>
     
@@ -89,8 +89,6 @@
           <td>
             <label for="minColors">Min</label>
             <label for="minColors" id="minColorsCurrent">(0)</label>
-          </td>
-          <td>
             <input type="range" min=0 max=5 value=0 id="minColors" oninput="minSlider(this.id,this.value,'maxColors')">
           </td>
           <td rowspan=2>
@@ -102,8 +100,6 @@
           <td>
             <label for="maxColors">Max</label>
             <label for="maxColors" id="maxColorsCurrent">(5)</label>    
-          </td>
-          <td>
             <input type="range" min=0 max=5 value=5 id="maxColors" oninput="maxSlider(this.id,this.value,'minColors')">        
           </td>
         </tr>
@@ -115,8 +111,6 @@
           <td>
             <label for="minTypes">Min</label>
             <label for="minTypes" id="minTypesCurrent">(0)</label>
-          </td>
-          <td>
             <input type="range" min=0 max=5 value=0 id="minTypes" oninput="minSlider(this.id,this.value,'maxTypes')">
           </td>
           <td rowspan=2>
@@ -128,8 +122,6 @@
           <td>
             <label for="maxTypes">Max</label>
             <label for="maxTypes" id="maxTypesCurrent">(5)</label>
-          </td>
-          <td>
             <input type="range" class="useTypes" min=0 max=5 value=5 id="maxTypes" oninput="maxSlider(this.id,this.value,'minTypes')">
           </td>
         </tr>
@@ -142,8 +134,6 @@
           <td>
             <label for="minPow">Min</label>
             <label for="minPow" id="minPowCurrent">(0)</label>
-          </td>
-          <td>
             <input type="range" class="usePow" min=0 max=20 value=0 id="minPow" oninput="minSlider(this.id,this.value,'maxPow')">
           </td>
           <td rowspan=2>
@@ -153,8 +143,6 @@
           <td>
             <label for="maxPow">Max</label>
             <label for="maxPow" id="maxPowCurrent">(20)</label>
-          </td>
-          <td>
             <input type="range" class="usePow" min=0 max=20 value=20 id="maxPow" oninput="maxSlider(this.id,this.value,'minPow')">
           </td>
         </tr>
@@ -167,8 +155,6 @@
           <td>
             <label for="minTough">Min</label>
             <label for="minTough" id="minToughCurrent">(0)</label>
-          </td>
-          <td>
             <input type="range" class="useTough" min=0 max=20 value=0 id="minTough" oninput="minSlider(this.id,this.value,'maxTough')">
           </td>
           <td rowspan=2>
@@ -178,8 +164,6 @@
           <td>
             <label for="maxTough">Max</label>
             <label for="maxTough" id="maxToughCurrent">(20)</label>
-          </td>
-          <td>
             <input type="range" class="useTough" min=0 max=20 value=20 id="maxTough" oninput="maxSlider(this.id,this.value,'minTough')">
           </td>
         </tr>
