@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.64</title>
+    <title>Design Randomiser v1.01</title>
     
     <style>
       body {
@@ -75,7 +75,7 @@
         var isPower = document.getElementById("usePow").checked;
         var isTough = document.getElementById("useTough").checked;
         var isRC = document.getElementById("useRaceClass").checked;
-        //var isOther = document.getElementById("useOtherTypes").checked;
+        var isOther = document.getElementById("useOtherTypes").checked;
                 
         // Inititate idea suggestion text.
         var idea = "Design a";
@@ -139,13 +139,14 @@
           
           if(isRC){
             var raceRef = [...RACES];
+            if(isOther) raceRef.concat(OTHER_RACE);
             typeList[0] = pickFrom(raceRef);
             if(typeList.length>1){
               var classRef = [...CLASSES];
+              if(isOther) classRef.concat(OTHER_CLASS);
               typeList[1] = pickFrom(classRef);
               if(typeList.length>2){
                 var typeRef = raceRef.concat(classRef);
-                //if(isOther) typeRef.concat(OTHERS);
                 for(i=2;i<typeList.length;i++){
                   typeList[i] = pickFrom(typeRef);
                 }
@@ -153,7 +154,7 @@
             }
           } else {
             var typeRef = [...RACES].concat(CLASSES);
-              //if(isOther) typeRef.concat(OTHERS);
+              if(isOther) typeRef.concat(OTHER_RACE, OTHER_CLASS);
               for(i=0;i<typeList.length;i++){
                 typeList[i] = pickFrom(typeRef);
               }
@@ -316,7 +317,6 @@
                          "Myr",
                          "Naga",
                          "Nautilus",
-                         "Nephilim",
                          "Nightmare",
                          "Nightstalker",
                          "Noggle",
@@ -411,53 +411,57 @@
                           "Warlock",
                           "Warrior",
                           "Wizard"];
-      const OTHERS = ["Ally",
-                          "Army",
-                          "Assembly-Worker",
-                          "Beeble",
+      const OTHER_RACE = ["Beeble",
                           "Blinkmoth",
-                          "Bringer",
-                          "Monger",
-                          "Carrier",
-                          "Citizen",
                           "Camarid",
                           "Caribou",
-                          "Coward",
-                          "Deserter",
                           "Elder",
-                          "Flagbearer",
                           "Germ",
-                          "Graveborn",
                           "Mouse",
+                          "Nephilim",
                           "Orb",
                           "Pentavite",
                           "Pest",
                           "Phelddagrif",
                           "Pincher",
-                          "Praetor",
                           "Prism",
-                          "Processor",
                           "Reflection",
-                          "Rigger",
                           "Sand",
                           "Saproling",
-                          "Scion",
                           "Sculpture",
-                          "Serf",
                           "Servo",
                           "Slith",
                           "Sliver",
                           "Spawn",
-                          "Spellshaper",
                           "Spike",
                           "Splinter",
-                          "Survivor",
                           "Tentacle",
                           "Tetravite",
                           "Triskelavite",
-                          "Volver",
-                          "Wall",
-                          "Zubera"];
+                          "Wall"];
+      const OTHER_CLASS = ["Ally",
+                           "Army",
+                           "Assembly-Worker",
+                           "Bringer",
+                           "Monger",
+                           "Carrier",
+                           "Citizen",
+                           "Coward",
+                           "Deserter",
+                           "Flagbearer",
+                           "Graveborn",
+                           "Praetor",
+                           "Processor",
+                           "Rigger",
+                           "Scion",
+                           "Serf",
+                           "Spellshaper",
+                           "Survivor",
+                           "Volver",
+                           "Zubera"]
+                          
+                          
+                          
       </script>
   </head>
   <body>
@@ -543,7 +547,9 @@
             <label for="minTough" id="minToughCurrent">(0)</label>
             <input type="range" class="useTough" min=0 max=20 value=0 id="minTough" oninput="minSlider(this.id,this.value,'maxTough')">
           </td>
-          <td rowspan=2>
+          <td rowspan=2>            
+            <input type="checkbox" class="check" id="useOtherTypes">
+            <label for="useOtherTypes" class="header">Include Unusual Types</label>    
           </td>
         </tr>
         <tr>
