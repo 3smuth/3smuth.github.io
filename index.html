@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Design Randomiser v0.20.2</title>
+    <title>Design Randomiser v0.20.3</title>
     
     <style>
       body {
@@ -43,7 +43,9 @@
         println(name+": "+document.getElementById(name).value);
         println(pair+": "+document.getElementById(pair).value);
         if(document.getElementById(name).value > document.getElementById(pair).value){
+          println("Ding! It should move now.")
           document.getElementById(pair).value = val;
+          println(pair+"'s new value is: "+document.getElementById(pair).value)
           sliderVal(pair,val);
         }
       }
@@ -52,8 +54,10 @@
         sliderVal(name,val);
         println(name+": "+document.getElementById(name).value);
         println(pair+": "+document.getElementById(pair).value);
-        if(document.getElementById(name).value < document.getElementById(pair).value){   
+        if(document.getElementById(name).value < document.getElementById(pair).value){
+          println("Ding! It should move now."
           document.getElementById(pair).value = val;
+          println(pair+"'s new value is: "+document.getElementById(pair).value)
           sliderVal(pair, val);
         }
       }
