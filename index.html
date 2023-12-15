@@ -181,7 +181,8 @@
           var pow = min + Math.floor(Math.random()*dif);
           
           // Update idea suggestion text.
-          idea += " with power";
+          idea += " with power ";
+          if(!isTough) idea += pow;
         }
         if(isTough){
           var min = parseInt(document.getElementById("minTough").value);
@@ -189,11 +190,10 @@
           var tough = min + Math.floor(Math.random()*dif);
           
           // Update idea suggestion text.
-          isPower ? idea += " and toughness " + pow + "/" + tough : idea += " with toughness " + tough;
+          isPower ? idea += "and toughness " + pow + "/" + tough : idea += "with toughness " + tough;
         }
             
         // Update and print idea suggestion text.
-        if(isPower && !isTough) idea += " " + pow;
         document.getElementById('suggestion').innerText = idea + ".";
       }
       
@@ -215,7 +215,6 @@
                          "Antelope",
                          "Ape",
                          "Archon",
-                         "Atog",
                          "Aurochs",
                          "Avatar",
                          "Azra",
@@ -287,7 +286,6 @@
                          "Hyena",
                          "Illusion",
                          "Imp",
-                         "Incarnation",
                          "Insect",
                          "Jackal",
                          "Jellyfish",
@@ -303,7 +301,6 @@
                          "Leech",
                          "Leviathan",
                          "Lhurgoyf",
-                         "Licid",
                          "Lizard",
                          "Manticore",
                          "Masticore",
@@ -321,6 +318,7 @@
                          "Nightmare",
                          "Nightstalker",
                          "Noggle",
+                         "Mouse",
                          "Nymph",
                          "Octopus",
                          "Ogre",
@@ -350,6 +348,7 @@
                          "Sheep",
                          "Siren",
                          "Skeleton",
+                         "Sliver",
                          "Slug",
                          "Snake",
                          "Soltari",
@@ -373,6 +372,7 @@
                          "Vampire",
                          "Vedalken",
                          "Viashino",
+                         "Wall",
                          "Weird",
                          "Werewolf",
                          "Whale",
@@ -390,13 +390,14 @@
                           "Assassin",
                           "Barbarian",
                           "Berserker",
+                          "Citizen",
                           "Cleric",
+                          "Coward",
                           "Druid",
                           "Knight",
                           "Mercenary",
                           "Minion",
                           "Monk",
-                          "Mystic",
                           "Ninja",
                           "Noble",
                           "Nomad",
@@ -412,13 +413,15 @@
                           "Warlock",
                           "Warrior",
                           "Wizard"];
-      const OTHER_RACE = ["Beeble",
+      const OTHER_RACE = ["Atog",
+                          "Beeble",
                           "Blinkmoth",
                           "Camarid",
                           "Caribou",
                           "Elder",
                           "Germ",
-                          "Mouse",
+                          "Incarnation",
+                          "Licid",
                           "Nephilim",
                           "Orb",
                           "Pentavite",
@@ -432,25 +435,22 @@
                           "Sculpture",
                           "Servo",
                           "Slith",
-                          "Sliver",
                           "Spawn",
                           "Spike",
                           "Splinter",
                           "Tentacle",
                           "Tetravite",
-                          "Triskelavite",
-                          "Wall"];
+                          "Triskelavite"];
       const OTHER_CLASS = ["Ally",
                            "Army",
                            "Assembly-Worker",
                            "Bringer",
                            "Monger",
                            "Carrier",
-                           "Citizen",
-                           "Coward",
                            "Deserter",
                            "Flagbearer",
                            "Graveborn",
+                           "Mystic",
                            "Praetor",
                            "Processor",
                            "Rigger",
